@@ -10,13 +10,15 @@ app.use(bodyParser.json());
 
 app.use('/', express.static(__dirname + "/frontend"));
 
-app.listen(process.env.PORT || 8000, (err) => {
+var port = process.env.PORT || 8080;
+
+app.listen( port, (err) => {
     if (err)
  {
      throw err;
  }});
 
-console.log( "Server running on port" + process.env.PORT || 8000);
+console.log( "Server running on port " + port);
 
 app.post('/app/v1/food', (req,res) => {
         var added = foodModel.create({
