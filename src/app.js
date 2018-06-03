@@ -12,7 +12,7 @@ app.use('/', express.static(__dirname + "/frontend"));
 
 var port = process.env.PORT || 8080;
 
-app.listen( port, (err) => {
+app.listen(port, (err) => {
     if (err)
  {
      throw err;
