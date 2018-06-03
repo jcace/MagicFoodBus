@@ -8,13 +8,15 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.listen('8000', (err) => {
+app.use('/', express.static(__dirname + "/frontend"));
+
+app.listen(process.env.PORT || 8000, (err) => {
     if (err)
  {
      throw err;
  }});
 
-console.log( "Server running on port 8000");
+console.log( "Server running on port" + process.env.PORT || 8000);
 
 app.post('/app/v1/food', (req,res) => {
         var added = foodModel.create({
